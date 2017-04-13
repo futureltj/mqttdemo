@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>test Ws mqtt.js</title>
+</head>
+<body>
+<script src="./mqtt.min.js"></script>
+<script>
+    var opts={
+        protocol:"wss",
+        host:"127.0.0.1",
+        port:8084,
+        path:"/mqtt",
+        rejectUnauthorized:false,
+        username:"js",
+        password:"123456",
+        clientId:"JsBrowser1",
+    }
+    var client = mqtt.connect(opts) // you add a ws:// url here
+    client.subscribe("tp1")
+
+    client.on("message", function (topic, message) {
+        console.log(topic+":"+message.toString())
+    })
+    client.publish("tp1", "I am WebJs")
+</script>
+</body>
+</html>
