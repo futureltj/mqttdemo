@@ -13,7 +13,7 @@ golang运行依赖的包都放在了lib\go中，你也可以通过`go get -u git
 ## webjs
 前端的运行，依赖之前node中使用的mqtt模块中封好的一个js文件，已经放在了webjs目录下，可以直接使用，注意前端的写法和服务端略有不同
 ## C
-c语言版本的最为复杂，因为不同的cpu构架下的so库需要自己编译，需要自行下载源码https://github.com/eclipse/paho.mqtt.c，然后`make & make install`。  
+c语言版本的最为复杂，因为不同的cpu构架下的so库需要自己编译，需要自行下载源码`https://github.com/eclipse/paho.mqtt.c`，然后`make & make install`。  
 make之前需要确保系统安装了Openssl，上述步骤成功后会产生四个so文件到`/usr/local/lib`以及三个h文件到`/usr/local/include`，这两个路径是gcc会自动寻找的路径  
 将本项目src中的`main.c`拷贝，然后`gcc main.c -lpaho-mqtt3cs -o mm`编译出可执行文件mm，`./mm`执行。  
   
